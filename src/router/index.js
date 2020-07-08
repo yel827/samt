@@ -1,0 +1,206 @@
+import Vue from 'vue'
+import Router from 'vue-router'
+Vue.use(Router)
+export default new Router({
+  routes: [
+    {
+      path: '/',
+      name: 'login',
+      component:()=>import('@/components/login/login'),
+    },
+    {
+      path:'/projectList',
+      name:'projectList',
+      component:()=>import('@/components/user/projectList/projectList')
+    },
+    {
+      path: '/us',
+      name: 'us',
+      component:()=>import('../us'),
+      redirect:'/home',
+      children:[
+        {
+          path: '/home',
+          name: 'home',
+          component:()=>import('@/components/user/home/home'),
+          meta:{
+            index:1
+          }
+        },
+        {
+          path: '/employeeInfo',
+          name: 'employeeInfo',
+          component:()=>import('@/components/user/personMgmt/employeeInfo/employeeInfo'),
+          meta:{
+            index:3
+          }
+        },
+        {
+          path: '/attenRecord',
+          name: 'attenRecord',
+          component:()=>import('@/components/user/attendanceMgmt/attenRecord/attenRecord'),
+          meta:{
+            index:4
+          }
+        },
+        {
+          path: '/sceneEnv',
+          name: 'sceneEnv',
+          component:()=>import('@/components/user/envMonitoring/sceneEnv/sceneEnv'),
+          meta:{
+            index:5
+          }
+        },
+        {
+          path:'/videoMonitor',
+          name:'videoMonitor',
+          component:()=>import('@/components/user/videoCenter/videoMonitor/videoMonitor'),
+          meta:{
+            index:6
+          },
+        },
+        {
+          path:'/vehicleManage',
+          name:'vehicleManage',
+          component:()=>import('@/components/user/videoCenter/vehicleManage/vehicleManage')
+        },
+        {
+          path:'/approvWorker',
+          name:'approvWorker',
+          component:()=>import('@/components/user/personMgmt/approvWorker/approvWorker')
+        },
+        {
+          path:'/violationRecord',
+          name:'violationRecord',
+          component:()=>import('@/components/user/personMgmt/violationRecord/violationRecord')
+        },
+        {
+          path:'/abnormalRecord',
+          name:'abnormalRecord',
+          component:()=>import('@/components/user/attendanceMgmt/abnormalRecord/abnormalRecord')
+        },
+        {
+          path:'/deviceManage',
+          name:'deviceManage',
+          component:()=>import('@/components/user/attendanceMgmt/deviceManage/deviceManage')
+        },
+        {
+          path:'/administration',
+          name:'/administration',
+          component:()=>import('@/components/user/envMonitoring/Administration/Administration')
+        },
+        {
+          path:'/dictionary',
+          name:'/dictionary',
+          component:()=>import('@/components/admin/dataDict/dictionary')
+        },
+        {
+          path:'/enterpriseInfo',
+          name:'enterpriseInfo',
+          component:()=>import('@/components/admin/companyInfo/enterpriseInfo')
+        },
+        {
+          path:'/organiStruc',
+          name:'organiStruc',
+          component:()=>import('@/components/admin/orgStructure/organiStruc')
+        },
+        {
+          path:'/projectinfo',
+          name:'Projectinfo',
+          component:()=>import('@/components/admin/projectinfo/Projectinformation')
+        },
+        {
+          path:'/permision',
+          name:'permision',
+          component:()=>import('@/components/admin/permissionSetting/permision')
+        },
+        {
+          path:'/staffManage',
+          name:'staffManage',
+          component:()=>import('@/components/admin/employeeMgmt/staffManage'),
+          children:[
+            {
+              path:'/department_Admin',
+              name:'department_',
+              component:()=>import('@/components/admin/employeeMgmt/staff_list/department_Admin'),
+            },
+            {
+              path:'/jurisdiction_Admin',
+              name:'jurisdiction_',
+              component:()=>import('@/components/admin/employeeMgmt/staff_list/jurisdictionAdmin'),
+            }
+          ]
+        },
+        {
+          path:'/safeEdu',
+          name:'safeEdu',
+          component:()=>import('@/components/admin/safetyStudy/safeEdu')
+        },
+        {
+          path:'/funcManage',
+          name:'funcManage',
+          component:()=>import('@/components/admin/functionMgmt/funcManage')
+        },
+        {
+          path:"/videoManage",
+          name:'videoManage',
+          component:()=>import('@/components/user/videoCenter/videoManage/videoManage')
+        },
+        {
+          path:'/fixedInspection',
+          name:"fixedInspection",
+          component:()=>import("@/components/user/securityManage/fixedInspection/fixedInspection"),
+          children:[
+            {
+              path:'/patrolPlan',
+              name:"patrolPlan",
+              component:()=>import("@/components/user/securityManage/fixedInspection/patrolPlan")
+            },
+            {
+              path:'/patrolPoint',
+              name:"patrolPoint",
+              component:()=>import("@/components/user/securityManage/fixedInspection/patrolPoint")
+            }
+          ]
+        },
+        {
+          path:'/realTimeInspection',
+          name:"realTimeInspection",
+          component:()=>import("@/components/user/securityManage/realTimeInspection/realTimeInspection")
+        },
+        {
+          path:'/taskManager',
+          name:'taskManager',
+          component:()=>import('@/components/user/workBench/taskManager/taskManager')
+        },
+        {
+          path:'/messageCenter',
+          name:'messageCenter',
+          component:()=>import('@/components/user/workBench/messageCenter/messageCenter')
+        },
+        {
+          path:"/myProjectInformation",
+          name:"myProjectInformation",
+          component:()=>import("@/components/userInfo/projectInformation")
+        },
+        {
+          path:"/myMailList",
+          name:"myMailList",
+          component:()=>import("@/components/userInfo/mailList")
+        },
+        {
+          path:"/myPersonalInformation",
+          name:"myPersonalInformation",
+          component:()=>import("@/components/userInfo/personalInformation")
+        },
+        {
+          path:"/mySwitchItems",
+          name:"mySwitchItems",
+          component:()=>import("@/components/userInfo/switchItems")
+        },
+      ]
+    },
+    
+  ]
+  
+})
